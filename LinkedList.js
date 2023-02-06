@@ -73,6 +73,28 @@ class LinkedList {
 
     return current;
   }
+
+  pop() {
+    if (!this.head) {
+      throw new Error("List is empty");
+    }
+
+    if (!this.head.next) {
+      let value = this.head.value;
+      this.head = null;
+      return value;
+    }
+
+    let previous = this.head;
+    let current = this.head.next;
+    while (current.next) {
+      previous = current;
+      current = current.next;
+    }
+
+    previous.next = null;
+    return current.value;
+  }
 }
 
 let list = new LinkedList();
@@ -81,6 +103,10 @@ list.append("1");
 list.append("2");
 list.append("3");
 list.append("4");
+list.pop();
+
+list.traverse();
+
 
 // list.prepend("Proba");
 // list.prepend("Test");
@@ -91,4 +117,4 @@ list.append("4");
 // a.append("Paca");
 
 // list.traverse();
-console.log(list.getAtIndex(0).value);
+console.log(list.size());
