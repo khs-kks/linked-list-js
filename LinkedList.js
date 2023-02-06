@@ -46,6 +46,10 @@ class LinkedList {
     }
     return count;
   }
+
+  getHead() {
+    return this.head;
+  }
 }
 
 let list = new LinkedList();
@@ -61,4 +65,4 @@ list.append("Probvam se");
 
 list.traverse();
 console.log(list.size());
-
+console.log(list.getHead().value);
