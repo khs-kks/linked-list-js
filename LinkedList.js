@@ -133,6 +133,21 @@ class LinkedList {
 
     console.log(values.join(" -> ") + " -> null");
   }
+
+  insertAt(value, index) {
+    if (index < 0 || index > this.size()) {
+      throw "Index out of range";
+    }
+
+    if (index === 0) {
+      this.prepend(value);
+      return;
+    }
+
+    let previous = this.getAtIndex(index - 1);
+    let newNode = new Node(value, previous.next);
+    previous.next = newNode;
+  }
 }
 
 let list = new LinkedList();
@@ -154,4 +169,8 @@ list.append("4");
 // a.append("Paca");
 
 // list.traverse();
+list.toString();
+
+list.insertAt("5", 2);
+
 list.toString();
