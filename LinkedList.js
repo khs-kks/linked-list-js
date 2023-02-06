@@ -148,29 +148,19 @@ class LinkedList {
     let newNode = new Node(value, previous.next);
     previous.next = newNode;
   }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.size()) {
+      throw "Index out of range";
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let previous = this.getAtIndex(index - 1);
+    previous.next = previous.next.next;
+  }
 }
 
-let list = new LinkedList();
-
-list.append("1");
-list.append("2");
-list.append("3");
-list.append("4");
-// list.pop();
-
-// list.traverse();
-
-// list.prepend("Proba");
-// list.prepend("Test");
-// list.prepend("Probvam se");
-// a.append("Last");
-// a.append("Trim");
-// a.append("HELLOOO");
-// a.append("Paca");
-
-// list.traverse();
-list.toString();
-
-list.insertAt("5", 2);
-
-list.toString();
