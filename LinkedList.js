@@ -95,6 +95,17 @@ class LinkedList {
     previous.next = null;
     return current.value;
   }
+
+  contains(value) {
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
+  }
 }
 
 let list = new LinkedList();
@@ -107,7 +118,6 @@ list.pop();
 
 list.traverse();
 
-
 // list.prepend("Proba");
 // list.prepend("Test");
 // list.prepend("Probvam se");
@@ -117,4 +127,4 @@ list.traverse();
 // a.append("Paca");
 
 // list.traverse();
-console.log(list.size());
+console.log(list.contains("proba"));
