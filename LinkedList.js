@@ -58,20 +58,37 @@ class LinkedList {
     }
     return current;
   }
+
+  getAtIndex(index) {
+    if (index < 0 || index >= this.size()) {
+      throw new Error("Index out of range");
+    }
+
+    let current = this.head;
+    let count = 0;
+    while (count < index) {
+      current = current.next;
+      count++;
+    }
+
+    return current;
+  }
 }
 
 let list = new LinkedList();
 
-list.append("Qj");
-list.prepend("Proba");
-list.prepend("Test");
-list.append("Probvam se");
+list.append("1");
+list.append("2");
+list.append("3");
+list.append("4");
+
+// list.prepend("Proba");
+// list.prepend("Test");
+// list.prepend("Probvam se");
 // a.append("Last");
 // a.append("Trim");
 // a.append("HELLOOO");
 // a.append("Paca");
 
-list.traverse();
-console.log(list.size());
-console.log(list.getHead().value);
-console.log(list.getTail().value);
+// list.traverse();
+console.log(list.getAtIndex(0).value);
