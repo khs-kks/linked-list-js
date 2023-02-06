@@ -120,6 +120,19 @@ class LinkedList {
     }
     return null;
   }
+
+  toString() {
+    const values = [];
+    let finalString = "";
+
+    let currentNode = this.head;
+    while (currentNode) {
+      values.push(`( ${currentNode.value} )`);
+      currentNode = currentNode.next;
+    }
+
+    console.log(values.join(" -> ") + " -> null");
+  }
 }
 
 let list = new LinkedList();
@@ -141,5 +154,4 @@ list.append("4");
 // a.append("Paca");
 
 // list.traverse();
-console.log(list.find("3"));
-console.log(list.find("proba"));
+list.toString();
