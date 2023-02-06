@@ -36,17 +36,29 @@ class LinkedList {
   prepend(value) {
     this.head = new Node(value, this.head);
   }
+
+  size() {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      count++;
+      current = current.next;
+    }
+    return count;
+  }
 }
 
-let a = new LinkedList();
+let list = new LinkedList();
 
-a.append("Qj");
-a.prepend("Proba");
-a.prepend("Test");
-a.append("Probvam se");
+list.append("Qj");
+list.prepend("Proba");
+list.prepend("Test");
+list.append("Probvam se");
 // a.append("Last");
 // a.append("Trim");
 // a.append("HELLOOO");
 // a.append("Paca");
 
-a.traverse();
+list.traverse();
+console.log(list.size());
+
