@@ -106,6 +106,20 @@ class LinkedList {
     }
     return false;
   }
+
+  find(value) {
+    let index = 0;
+    let current = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return index;
+      }
+      index++;
+      current = current.next;
+    }
+    return null;
+  }
 }
 
 let list = new LinkedList();
@@ -114,9 +128,9 @@ list.append("1");
 list.append("2");
 list.append("3");
 list.append("4");
-list.pop();
+// list.pop();
 
-list.traverse();
+// list.traverse();
 
 // list.prepend("Proba");
 // list.prepend("Test");
@@ -127,4 +141,5 @@ list.traverse();
 // a.append("Paca");
 
 // list.traverse();
-console.log(list.contains("proba"));
+console.log(list.find("3"));
+console.log(list.find("proba"));
