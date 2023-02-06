@@ -32,14 +32,21 @@ class LinkedList {
       currentNode = currentNode.next;
     }
   }
+
+  prepend(value) {
+    this.head = new Node(value, this.head);
+  }
 }
 
-// let a = new LinkedList();
+let a = new LinkedList();
 
-// a.append("Qj");
+a.append("Qj");
+a.prepend("Proba");
+a.prepend("Test");
+a.append("Probvam se");
 // a.append("Last");
 // a.append("Trim");
 // a.append("HELLOOO");
 // a.append("Paca");
 
-// a.traverse();
+a.traverse();
